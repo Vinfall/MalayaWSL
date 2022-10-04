@@ -1,6 +1,7 @@
 # ManjaroWSL
 Manjaro on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl).
 
+![screenshot](https://github.com/Vinfall/ManjaroWSL/blob/main/img/screenshot.webp)
 
 ## 💻 Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
