@@ -1,9 +1,6 @@
 # ManjaroWSL
 Manjaro on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl).
 
-[![Screenshot-2021-01-13-125803.png](https://i.postimg.cc/RC1WHM7Y/Screenshot-2021-01-13-125803.png)](https://postimg.cc/7b6PvrQ1)
-[![Github All Releases](https://img.shields.io/github/downloads/sileshn/ManjaroWSL/total.svg?style=flat-square)](https://github.com/sileshn/ManjaroWSL/releases)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![License](https://img.shields.io/github/license/yosukes-dev/FedoraWSL.svg?style=flat-square)
 
 ## 💻 Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
@@ -22,7 +19,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 For more details, check [this](https://docs.microsoft.com/en-us/windows/wsl/install-win10) microsoft document.
 
 ## Install
-1. [Download](https://github.com/sileshn/ManjaroWSL/releases/latest) installer zip
+1. [Download](https://github.com/Vinfall/ManjaroWSL/releases/latest) installer zip
 2. Extract all files in zip file to same directory
 3. Run Manjaro.exe to Extract rootfs and Register to WSL
 
@@ -30,12 +27,12 @@ For more details, check [this](https://docs.microsoft.com/en-us/windows/wsl/inst
 Exe filename is using the instance name to register. If you rename it you can register with a diffrent name and have multiple installs.
 
 If you want to use WSL2 after install, convert it with the following command.
-```dos
+```powershell
 wsl --set-version Manjaro 2
 ```
 
 You can also set wsl2 as default. Use the command below before running Manjaro.exe.
-```dos
+```powershell
 wsl --set-default-version 2
 ```
 
@@ -126,35 +123,28 @@ Execute the command below in a windows cmd terminal from the directory where Man
 ## How to uninstall instance
 ```dos
 >Manjaro.exe clean
-
 ```
 
 ## How to build
 
+### The hard way
+
+Developing...
+
+### The easy way
+
 #### Prerequisites
 
-Docker, tar, zip, unzip need to be installed.
+`curl`, `jq`, `wget`, `tar`, `zip`, `unzip`, `podman` need to be installed.
 
-```dos
-git clone git@gitlab.com:sileshn/ManjaroWSL.git
+```sh
+git clone --depth=1 https://github.com/changrui/ManjaroWSL.git
 cd ManjaroWSL
+sed -i 's/docker/podman/g' Makefile
 make
-
 ```
 Copy the Manjaro.zip file to a safe location and run the command below to clean.
-```dos
+```sh
 make clean
-
 ```
 
-## How to run docker in ManjaroWSL without using docker desktop
-
-Install docker.
-```dos
-sudo pacman -S docker
-
-```
-
-Follow [this](https://blog.nillsf.com/index.php/2020/06/29/how-to-automatically-start-the-docker-daemon-on-wsl2/) blog post for further details on how to set it up.
-
-[![Screenshot-2021-01-27-175029.png](https://i.postimg.cc/Z5vGPXwn/Screenshot-2021-01-27-175029.png)](https://postimg.cc/fVZqDqnQ)
