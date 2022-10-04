@@ -129,7 +129,37 @@ Execute the command below in a windows cmd terminal from the directory where Man
 
 ### The hard way
 
-Developing...
+`curl`, `jq`, `libarchive`, `wget`, `tar`, `unzip` need to be installed.
+
+#### Build rootfs
+
+```sh
+# 1. Install all the dependencies:
+sudo pacman -S arch-install-scripts curl jq libarchive manjaro-tools-base-git tar unzip wget
+
+# 2. Clone the repo
+git clone --depth=1 https://github.com/manjaro/manjaro-docker.git
+
+# 3. Apply the patch & build the rootfs, this could take a while
+cd x86_docker
+patch < manjanro-rootfs.patch
+sudo make
+```
+
+#### Package WSL
+
+Remember to place the `base.tar` generated above inside the folder.
+
+```sh
+git clone --depth=1 https://github.com/Vinfall/ManjaroWSL.git
+cd ManjaroWSL
+# Remember to place the `base.tar` generated above inside the folder.
+make
+```
+Copy the Manjaro.zip file to a safe location and run the command below to clean.
+```sh
+make clean
+```
 
 ### The easy way
 
