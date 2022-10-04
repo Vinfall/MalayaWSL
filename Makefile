@@ -5,7 +5,6 @@ DLR=curl
 DLR_FLAGS=--silent --location
 DLR2=wget
 DLR2_FLAGS=--quiet --continue
-BASE_URL=
 LNCR_ZIP_URL=https://api.github.com/repos/yuk7/wsldl/releases/latest
 LNCR_ZIP_EXE=Manjaro.exe
 
@@ -14,7 +13,7 @@ all: $(OUT_ZIP)
 zip: $(OUT_ZIP)
 $(OUT_ZIP): ziproot
 	@echo -e '\e[1;31mBuilding $(OUT_ZIP)\e[m'
-	cd ziproot; zip ../$(OUT_ZIP) *
+	cd ziproot; bsdtar -a -cf ../$(OUT_ZIP) *
 
 ziproot: Launcher.exe rootfs.tar.gz
 	@echo -e '\e[1;31mBuilding ziproot...\e[m'
@@ -46,11 +45,8 @@ rootfs: base.tar
 	sudo chmod +x rootfs
 
 base.tar:
-	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --name manjarowsl manjarolinux/base:latest /bin/bash -c "pacman --noconfirm -Sy awk; pacman-key --init; pacman-key --populate archlinux; pacman --noconfirm -Syyu; pacman-mirrors --api --set-branch testing; pacman-mirrors --fasttrack 5; pacman --noconfirm -Syyuu; pacman --noconfirm --needed -S aria2 base-devel ccache git git-lfs grep inetutils iputils linux-tools lzip nano openssh procps sudo tree vivid wget; setcap 'cap_net_admin,cap_net_raw+ep' /usr/sbin/ping; sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers; yes | LC_ALL=en_US.UTF-8 pacman -Scc"
-	docker export --output=base.tar manjarowsl
-	docker rm -f manjarowsl
-
+	@echo -e '\e[1;31mRename manjaro.tar to base.tar...\e[m'
+	mv manjaro.tar base.tar
 clean:
 	@echo -e '\e[1;31mCleaning files...\e[m'
 	-rm ${OUT_ZIP}
@@ -61,4 +57,3 @@ clean:
 	-rm rootfs.tar.gz
 	-sudo rm -r rootfs
 	-rm base.tar
-	-docker rmi manjarolinux/base:latest -f
