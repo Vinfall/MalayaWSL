@@ -2,8 +2,11 @@ OUT_ZIP=Manjaro.zip
 LNCR_EXE=Manjaro.exe
 
 DLR=curl
-DLR_FLAGS=-L
-LNCR_ZIP_URL=https://github.com/yuk7/wsldl/releases/download/20121600/icons.zip
+DLR_FLAGS=--silent --location
+DLR2=wget
+DLR2_FLAGS=--quiet --continue
+BASE_URL=
+LNCR_ZIP_URL=https://api.github.com/repos/yuk7/wsldl/releases/latest
 LNCR_ZIP_EXE=Manjaro.exe
 
 all: $(OUT_ZIP)
@@ -27,7 +30,8 @@ Launcher.exe: icons.zip
 
 icons.zip:
 	@echo -e '\e[1;31mDownloading icons.zip...\e[m'
-	$(DLR) $(DLR_FLAGS) $(LNCR_ZIP_URL) -o icons.zip
+	$(DLR) $(DLR_FLAGS) $(LNCR_ZIP_URL) | jq --raw-output ".assets[].browser_download_url" | grep --extended-regexp "icons.zip" > url
+	$(DLR2) $(DLR2_FLAGS) --input url
 
 rootfs.tar.gz: rootfs
 	@echo -e '\e[1;31mBuilding rootfs.tar.gz...\e[m'
@@ -51,6 +55,7 @@ clean:
 	@echo -e '\e[1;31mCleaning files...\e[m'
 	-rm ${OUT_ZIP}
 	-rm -r ziproot
+	-rm url
 	-rm Launcher.exe
 	-rm icons.zip
 	-rm rootfs.tar.gz
