@@ -1,7 +1,19 @@
-# ManjaroWSL
-Manjaro on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl).
+# MalayaWSL
+
+UNOFFICIAL Manjaro on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl).
 
 ![screenshot](https://github.com/Vinfall/ManjaroWSL/blob/main/img/screenshot.webp)
+
+## Disclaimer
+
+### THIS REPO IS NOT AFFILIATE TO THE OFFICIAL "MANJARO LINUX" DISTRIBUTION IN ANY WAY!
+
+## Name
+
+From [a post on Manjaro Linux Forum](https://forum.manjaro.org/t/origin-of-the-name-manjaro/110428), I learn that the name *Manjaro* derives from Mount Kilimanjaro. And from [this post on Manjaro Linux Forum](https://forum.manjaro.org/t/bad-use-of-manjaro-name-by-a-project/110695) and https://github.com/sirredbeard/Awesome-WSL/pull/77, it seems that someone does not like the name so the original author deleted its repo.
+
+The word *Malaya* derives from Mount Himalaya.
+In Sanskrit `himá` means 'snow, frost', which may reminds you of a novel written by Ernest Hemingway named *The Snow of Kilimanjaro*, hence the name.
 
 ## 💻 Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
@@ -20,7 +32,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 For more details, check [this](https://docs.microsoft.com/en-us/windows/wsl/install-win10) microsoft document.
 
 ## Install
-1. [Download](https://github.com/Vinfall/ManjaroWSL/releases/latest) installer zip
+1. [Download](https://github.com/Vinfall/MalayaWSL/releases/latest) installer zip
 2. Extract all files in zip file to same directory
 3. Run Manjaro.exe to Extract rootfs and Register to WSL
 
@@ -152,8 +164,8 @@ sudo make
 Remember to place the `base.tar` generated above inside the folder.
 
 ```sh
-git clone --depth=1 https://github.com/Vinfall/ManjaroWSL.git
-cd ManjaroWSL
+git clone --depth=1 https://github.com/Vinfall/MalayaWSL.git
+cd MalayaWSL
 # Remember to place the `base.tar` generated above inside the folder.
 make
 ```
