@@ -128,7 +128,7 @@ Execute the command below in a windows cmd terminal from the directory where Man
 
 ## How to build
 
-### The hard way
+### The hard way (which I use for now)
 
 `curl`, `jq`, `libarchive`, `wget`, `tar`, `unzip` need to be installed.
 
@@ -142,7 +142,7 @@ sudo pacman -S arch-install-scripts curl jq libarchive manjaro-tools-base-git ta
 git clone --depth=1 https://github.com/manjaro/manjaro-docker.git
 
 # 3. Apply the patch & build the rootfs, this could take a while
-cd x86_docker
+cd manjaro-docker/x86_docker
 patch < manjanro-rootfs.patch
 sudo make
 ```
@@ -162,7 +162,8 @@ Copy the Manjaro.zip file to a safe location and run the command below to clean.
 make clean
 ```
 
-### The easy way
+You may check out my blog [Revive ManjaroWSL](https://blog.vinfall.com/posts/2022/10/revive-manjarowsl/) on this for details.
+### The easy way (the old way)
 
 #### Prerequisites
 
@@ -178,4 +179,3 @@ Copy the Manjaro.zip file to a safe location and run the command below to clean.
 ```sh
 make clean
 ```
-
