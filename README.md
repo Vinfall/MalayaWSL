@@ -142,7 +142,7 @@ Execute the command below in a windows cmd terminal from the directory where Man
 
 ### The hard way (which I use for now)
 
-`curl`, `jq`, `libarchive`, `wget`, `tar`, `unzip` need to be installed.
+`curl`, `jq`, `libarchive`, `tar`, `unzip` need to be installed.
 
 #### Build rootfs
 
@@ -179,7 +179,7 @@ You may check out my blog [Revive ManjaroWSL](https://blog.vinfall.com/posts/202
 
 #### Prerequisites
 
-`curl`, `jq`, `wget`, `tar`, `zip`, `unzip`, `podman` need to be installed.
+`curl`, `jq`, `tar`, `zip`, `unzip`, `podman` need to be installed.
 
 ```sh
 git clone --depth=1 https://github.com/changrui/ManjaroWSL.git
