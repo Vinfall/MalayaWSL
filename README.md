@@ -152,10 +152,12 @@ sudo pacman -S arch-install-scripts curl jq libarchive manjaro-tools-base-git ta
 
 # 2. Clone the repo
 git clone --depth=1 https://github.com/manjaro/manjaro-docker.git
+git clone --depth=1 https://github.com/Vinfall/MalayaWSL.git
 
 # 3. Apply the patch & build the rootfs, this could take a while
+cp MalayaWSL/majaro-rootfs.patch manjaro-docker/x86_docker/
 cd manjaro-docker/x86_docker
-patch < manjanro-rootfs.patch
+patch Makefile < manjaro-rootfs.patch
 sudo make
 ```
 
@@ -164,8 +166,7 @@ sudo make
 Remember to place the `base.tar` generated above inside the folder.
 
 ```sh
-git clone --depth=1 https://github.com/Vinfall/MalayaWSL.git
-cd MalayaWSL
+cd .. && cd ../MalayaWSL
 # Remember to place the `base.tar` generated above inside the folder.
 make
 ```
