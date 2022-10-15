@@ -148,14 +148,14 @@ Execute the command below in a windows cmd terminal from the directory where Man
 
 ```sh
 # 1. Install all the dependencies:
-sudo pacman -S arch-install-scripts curl jq libarchive manjaro-tools-base-git tar unzip wget
+sudo pacman -S arch-install-scripts curl jq libarchive make manjaro-tools-base-git patch tar unzip wget
 
 # 2. Clone the repo
 git clone --depth=1 https://github.com/manjaro/manjaro-docker.git
 git clone --depth=1 https://github.com/Vinfall/MalayaWSL.git
 
 # 3. Apply the patch & build the rootfs, this could take a while
-cp MalayaWSL/majaro-rootfs.patch manjaro-docker/x86_docker/
+cp MalayaWSL/manjaro-rootfs.patch manjaro-docker/x86_docker/
 cd manjaro-docker/x86_docker
 patch Makefile < manjaro-rootfs.patch
 sudo make
