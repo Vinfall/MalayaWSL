@@ -3,7 +3,7 @@ LNCR_EXE=Manjaro.exe
 
 DLR=curl
 DLR_FLAGS=--silent --location
-LNCR_ZIP_URL=!=curl --silent https://api.github.com/repos/yuk7/wsldl/releases | jq --raw-output ".[0].assets[].browser_download_url" | grep --extended-regexp "icons.zip"
+LNCR_ZIP_URL!=curl --silent https://api.github.com/repos/yuk7/wsldl/releases | jq --raw-output ".[0].assets[].browser_download_url" | grep --extended-regexp "icons.zip"
 LNCR_ZIP_EXE=Manjaro.exe
 
 all: $(OUT_ZIP)
