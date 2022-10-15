@@ -163,11 +163,10 @@ sudo make
 
 #### Package WSL
 
-Remember to place the `base.tar` generated above inside the folder.
-
 ```sh
-cd .. && cd ../MalayaWSL
-# Remember to place the `base.tar` generated above inside the folder.
+# Remember to place the `base.tar` generated above inside the folder
+mv base.tar ../../MalayaWSL/base.tar
+cd ../../MalayaWSL
 make
 ```
 Copy the Manjaro.zip file to a safe location and run the command below to clean.
