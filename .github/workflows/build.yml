@@ -27,7 +27,7 @@ jobs:
         run: sudo apt install -y arch-install-scripts curl docker jq libarchive-tools make patch tar unzip wget xz-utils
       - name: build package
         run: |
-             patch Makefile < manjaro-docker.patch
+             patch --force Makefile < manjaro-docker.patch
              make
              make clean
              mv Manjaro.zip release/Manjaro.zip
