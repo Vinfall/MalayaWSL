@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: arch-latest
+    runs-on: ubuntu-22.04
     # Skip build with [ci skip] in commit
     if: "! contains(github.event.head_commit.message, '[ci skip]')"
     steps:
@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - run: mkdir -p release
       - name: install dependencies
-        run: sudo pacman -S --needed arch-install-scripts curl docker jq libarchive make patch tar unzip wget xz
+        run: sudo apt install -y arch-install-scripts curl docker jq libarchive-tools make patch tar unzip wget xz-utils
       - name: build package
         run: |
              patch Makefile < manjaro-docker.patch
