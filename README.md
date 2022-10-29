@@ -187,7 +187,7 @@ You may check out my blog [Revive ManjaroWSL](https://blog.vinfall.com/posts/202
 ```sh
 git clone --depth=1 https://github.com/Vinfall/MalayaWSL.git
 cd MalayaWSL
-patch Makefile < manjaro-docker.patch
+patch --force Makefile < manjaro-docker.patch
 # Uncomment the following line if you use podman instead of docker
 #sed -i 's/docker/podman/g' Makefile
 make
