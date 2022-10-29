@@ -142,6 +142,8 @@ Execute the command below in a windows cmd terminal from the directory where Man
 
 ### The hard way (which I use for now)
 
+#### Prerequisites
+
 `curl`, `jq`, `libarchive`, `tar`, `unzip` need to be installed.
 
 #### Build rootfs
@@ -175,16 +177,19 @@ make clean
 ```
 
 You may check out my blog [Revive ManjaroWSL](https://blog.vinfall.com/posts/2022/10/revive-manjarowsl/) on this for details.
+
 ### The easy way (the old way)
 
 #### Prerequisites
 
-`curl`, `jq`, `tar`, `zip`, `unzip`, `podman` need to be installed.
+`curl`, `docker`, `jq`, `libarchive`, `tar`, `unzip` need to be installed.
 
 ```sh
-git clone --depth=1 https://github.com/changrui/ManjaroWSL.git
-cd ManjaroWSL
-sed -i 's/docker/podman/g' Makefile
+git clone --depth=1 https://github.com/Vinfall/MalayaWSL.git
+cd MalayaWSL
+patch Makefile < manjaro-docker.patch
+# Uncomment the following line if you use podman instead of docker
+#sed -i 's/docker/podman/g' Makefile
 make
 ```
 Copy the Manjaro.zip file to a safe location and run the command below to clean.
