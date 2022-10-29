@@ -29,8 +29,8 @@ jobs:
         run: |
              wget -O Makefile https://raw.githubusercontent.com/changrui/ManjaroWSL/main/Makefile
              patch Makefile < manjaro-docker.patch
-             make
-             make clean
+             sudo make
+             sudo make clean
              mv Manjaro.zip release/Manjaro.zip
       - name: save release as artifact
         uses: actions/upload-artifact@v3
