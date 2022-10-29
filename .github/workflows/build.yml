@@ -1,14 +1,14 @@
 name: "MalayaWSL Build"
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
     # Trigger only when Makefile is changed
-    paths: ['Makefile']
+    #paths: ['Makefile']
   workflow_dispatch:
-  schedule:
+  #schedule:
     # Trigger every Saturday at 11:59 UTC
-    - cron: "59 11 * * sat"
+    #- cron: "59 11 * * sat"
 
 jobs:
   build:
