@@ -150,7 +150,7 @@ Execute the command below in a windows cmd terminal from the directory where Man
 
 ```sh
 # 1. Install all the dependencies:
-sudo pacman -S arch-install-scripts curl jq libarchive make manjaro-tools-base-git patch tar unzip wget
+sudo pacman -S --needed arch-install-scripts curl jq libarchive make manjaro-tools-base-git patch tar unzip wget
 
 # 2. Clone the repo
 git clone --depth=1 https://github.com/manjaro/manjaro-docker.git
