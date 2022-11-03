@@ -24,11 +24,12 @@ jobs:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - run: mkdir -p release
       - name: install dependencies
-        run: sudo apt install -y arch-install-scripts curl docker jq libarchive-tools make patch tar unzip wget xz-utils
+        run: sudo apt install -y arch-install-scripts curl jq libarchive-tools make patch podman podman-docker tar unzip wget xz-utils
       - name: build package
         run: |
              wget -O Makefile https://raw.githubusercontent.com/changrui/ManjaroWSL/main/Makefile
              patch Makefile < manjaro-docker.patch
+             sed -i 's/docker/podman/g' Makefile
              sudo make
              sudo make clean
              mv Manjaro.zip release/Manjaro.zip
