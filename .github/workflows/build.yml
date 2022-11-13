@@ -25,17 +25,18 @@ jobs:
       - run: mkdir -p release
       - name: install dependencies
         run: sudo apt install -y arch-install-scripts curl jq libarchive-tools make patch podman podman-docker tar unzip wget xz-utils
-      - name: build package
+      - name: build package & make hash
         run: |
              wget -O Makefile https://raw.githubusercontent.com/changrui/ManjaroWSL/main/Makefile
              patch Makefile < manjaro-docker.patch
              sed -i 's/docker/podman/g' Makefile
              sudo make
-             sudo make clean
-             mv Manjaro.zip release/Manjaro.zip
+             #sudo make clean
+             sha512sum Manjaro.zip > Manjaro.zip.sha512
+             mv Manjaro.zip* release/
       - name: save release as artifact
         uses: actions/upload-artifact@v3
         with:
           retention-days: 10
-          name: Manjaro.zip
+          name: Manjaro-packed.zip
           path: release
