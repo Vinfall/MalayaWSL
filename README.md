@@ -170,8 +170,9 @@ sudo make
 mv base.tar ../../MalayaWSL/base.tar
 cd ../../MalayaWSL
 make
+sha512sum Manjaro.zip > Manjaro.zip.sha512
 ```
-Copy the Manjaro.zip file to a safe location and run the command below to clean.
+Copy `Manjaro.zip` and its hash to a safe location and run the command below to clean.
 ```sh
 make clean
 ```
