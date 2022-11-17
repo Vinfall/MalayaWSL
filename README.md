@@ -1,5 +1,12 @@
 # MalayaWSL
 
+## Deprecation Notice
+
+As [the original repo is back](https://github.com/sirredbeard/Awesome-WSL/pull/77#issuecomment-1318453821), I no longer have the intention to maintain this.
+You are encouraged to download latest release from [sileshn/ManjaroWSL2](https://github.com/sileshn/ManjaroWSL2) instead.
+
+***
+
 UNOFFICIAL Manjaro on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl).
 
 ![screenshot](https://github.com/Vinfall/ManjaroWSL/blob/main/img/screenshot.webp)
@@ -10,7 +17,7 @@ UNOFFICIAL Manjaro on WSL2 (Windows 10 FCU or later) based on [wsldl](https://gi
 
 ## Name
 
-From [a post on Manjaro Linux Forum](https://forum.manjaro.org/t/origin-of-the-name-manjaro/110428), I learn that the name *Manjaro* derives from Mount Kilimanjaro. And from [this post on Manjaro Linux Forum](https://forum.manjaro.org/t/bad-use-of-manjaro-name-by-a-project/110695) and https://github.com/sirredbeard/Awesome-WSL/pull/77, it seems that someone does not like the name so the original author deleted its repo.
+From [a post on Manjaro Linux Forum](https://forum.manjaro.org/t/origin-of-the-name-manjaro/110428), I learn that the name *Manjaro* derives from Mount Kilimanjaro. And from [this post on Manjaro Linux Forum](https://forum.manjaro.org/t/bad-use-of-manjaro-name-by-a-project/110695) and https://github.com/sirredbeard/Awesome-WSL/pull/77, it seems that someone does not like the name ~~so the original author deleted its repo~~, it's back at [sileshn/ManjaroWSL2](https://github.com/sileshn/ManjaroWSL2) with permission granted from Manjaro team.
 
 The word *Malaya* derives from Mount Himalaya.
 In Sanskrit `himá` means 'snow, frost', which may reminds you of a novel written by Ernest Hemingway named *The Snow of Kilimanjaro*, hence the name.
